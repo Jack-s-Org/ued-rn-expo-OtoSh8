@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MeScreen from "./MeScreen";
 import DiscoverScreen from "./DiscoverScreen";
-import AppDrawer from "./AppDrawer";
 import SettingsScreen from "./SettingsScreen";
 import AddScreen from "./AddScreen";
 import {TouchableOpacity, Image } from 'react-native';
@@ -129,6 +128,7 @@ const MainTabs = ({ navigation }) => {
             name="SettingsDrawer"
             component={MeScreen}
             options={{
+              
               tabBarIcon: ({focused, color, size }) => {
                 return (<Image style={{height: 84, width: 84}}  source={require('@/assets/Profile.png')}/>);
               },
