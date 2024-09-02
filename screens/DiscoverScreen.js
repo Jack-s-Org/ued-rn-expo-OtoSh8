@@ -11,6 +11,7 @@ const DiscoverScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#A7A7A7",
     display: "flex",
     flex: 1,
     alignItems: "center",

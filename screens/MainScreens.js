@@ -23,14 +23,14 @@ const MainTabs = ({ navigation }) => {
 
   return (
     <AppDrawer navigation={navigation}>
-      <SafeAreaView style={{ height: "100%" }}>
+      <SafeAreaView style={{ backgroundColor: "#A7A7A7", height: "100%" }}>
 
         
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-            tabBarActiveTintColor: "#408086",
-
+            tabBarActiveTintColor: "#A7A7A7",
+            backgroundColor: "#A7A7A7",
             tabBarStyle: {
               height: 90,
               width: 350,
@@ -40,6 +40,7 @@ const MainTabs = ({ navigation }) => {
               paddingRight: 2,
               borderRadius: 9,
               bottom: 12,
+              
             },
             tabBarItemStyle: {
               width: 84,
