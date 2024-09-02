@@ -22,7 +22,6 @@ const MainTabs = ({ navigation }) => {
   const [page, setPageCount] = useState(0);
 
   return (
-    <AppDrawer navigation={navigation}>
       <SafeAreaView style={{ backgroundColor: "#A7A7A7", height: "100%" }}>
 
         
@@ -148,7 +147,6 @@ const MainTabs = ({ navigation }) => {
           />
         </Tab.Navigator>
       </SafeAreaView>
-    </AppDrawer>
   );
 };
 
