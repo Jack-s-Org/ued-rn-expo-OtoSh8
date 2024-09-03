@@ -27,8 +27,7 @@ const MainTabs = ({ navigation }) => {
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-            tabBarActiveTintColor: "#A7A7A7",
-            backgroundColor: "#A7A7A7",
+            
             tabBarStyle: {
               height: 90,
               width: 350,
