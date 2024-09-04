@@ -4,7 +4,7 @@ import SBar from "@/components/sBar";
 import Knob from "@/components/knob";
 import { LinearGradient } from 'expo-linear-gradient';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+import RecipeContainer from "@/components/recipecontainer";
 
 
 const HomeScreen = () => {
@@ -24,6 +24,8 @@ const HomeScreen = () => {
       <Knob></Knob>
       <Knob></Knob>
       </View>
+
+    <RecipeContainer></RecipeContainer>
       
     </SafeAreaView>
     </GestureHandlerRootView>
