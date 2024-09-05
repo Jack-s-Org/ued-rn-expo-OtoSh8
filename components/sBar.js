@@ -1,6 +1,6 @@
 import { ImageBackground, TextInput, View } from "react-native";
 import IcoFilter from "./icons/filter";
-import '@fontsource/k2d';
+
 
 function SBar() {
     return(

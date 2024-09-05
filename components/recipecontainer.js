@@ -1,17 +1,35 @@
-import { View, StyleSheet } from "react-native";
-import RadialGradient from 'react-native-radial-gradient';
-
+import { View, StyleSheet, Text, ImageBackground } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import InsetShadow from 'react-native-inset-shadow';
+import Recipe from "./recipe";
 
 function RecipeContainer(){
     return(
         <View style={styles.Maincontainer}>
-            <RadialGradient style={{width:200,height:200}}
-                        colors={['black','green','blue','red']}
-                        stops={[0.1,0.4,0.3,0.75]}
-                        center={[100,100]}
-                        radius={200}>
+            <ImageBackground source={require("@/assets/recipecon.png")} style={{width: "100%", height: "100%"}} resizeMode="stretch">
+                <ScrollView contentContainerStyle={styles.contentContainer} horizontal={false} style={styles.innercontainer}>
+                    <View style={styles.reciperow}>
+                    <Recipe></Recipe>
+                    <Recipe></Recipe>
+                    </View>
+                
+                    <View style={styles.reciperow}>
+                    <Recipe></Recipe>
+                    <Recipe></Recipe>
+                    </View>
 
-            </RadialGradient>
+                    <View style={styles.reciperow}>
+                    <Recipe></Recipe>
+                    <Recipe></Recipe>
+                    </View>
+
+                    <View style={styles.reciperow}>
+                    <Recipe></Recipe>
+                    <Recipe></Recipe>
+                    </View>
+                </ScrollView>
+            </ImageBackground>
+      
         </View>
     );
 }
@@ -20,7 +38,27 @@ const styles = StyleSheet.create({
     Maincontainer: {
         backgroundColor: "#7B7B7B",
         width: 344,
-        height: 494
+        height: 494,
+        borderRadius: 4
+    },
+    innercontainer: {
+        width: "100%",
+        height: "100%",
+        opacity: 1,
+        
+    },
+    contentContainer:{
+        paddingVertical: 6,
+        // paddingHorizontal: 6,
+        // columnGap: 12,
+    },
+    reciperow: {
+    width: "auto",
+    height: 226,
+    display: "flex",
+    flexDirection: "row",
+    columnGap: 12,
+    margin: 6
     }
 });
 

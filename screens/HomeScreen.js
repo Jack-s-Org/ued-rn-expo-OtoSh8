@@ -5,7 +5,7 @@ import Knob from "@/components/knob";
 import { LinearGradient } from 'expo-linear-gradient';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import RecipeContainer from "@/components/recipecontainer";
-
+import Recipe from "@/components/recipe";
 
 const HomeScreen = () => {
   return (
@@ -25,8 +25,8 @@ const HomeScreen = () => {
       <Knob></Knob>
       </View>
 
-    <RecipeContainer></RecipeContainer>
-      
+    <RecipeContainer>
+    </RecipeContainer>
     </SafeAreaView>
     </GestureHandlerRootView>
   );
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     paddingVertical: 18
   },
   container: {
-    paddingTop: 0,
+    paddingTop: -20,
     backgroundColor: "#A7A7A7",
     display: "flex",
     flexDirection: "column",
