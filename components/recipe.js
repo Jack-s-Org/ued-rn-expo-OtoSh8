@@ -10,8 +10,11 @@ function Recipe(){
         <ImageBackground source={require("@/assets/food/chocolate_cake.png")} resizeMode="cover" style={{width: 126, height: 126, alignSelf: "center", backgroundColor: "blue",padding: 0, margin: "auto"}}>
             </ImageBackground>
     </View>
+    <View>
     <Text style={{fontFamily: "K2D", fontSize: 6, fontWeight: 500, alignSelf: "flex-start"}}>DISH NAME:</Text>
     <Text style={{fontFamily: "K2D", fontSize: 16, fontWeight: 700}}>Chocolate Cake</Text>
+    </View>
+    
         </View>
     );
     
@@ -33,7 +36,8 @@ const styles = StyleSheet.create({
         opacity: 1,
         display: "flex",
         alignItems: "center",
-        paddingVertical: 10
+        paddingVertical: 10,
+        rowGap: 14
     }
 })
 

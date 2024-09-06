@@ -1,6 +1,5 @@
 import { View, StyleSheet, Text, ImageBackground } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import InsetShadow from 'react-native-inset-shadow';
 import Recipe from "./recipe";
 
 function RecipeContainer(){
