@@ -8,23 +8,23 @@ function RecipeContainer(){
             <ImageBackground source={require("@/assets/recipecon.png")} style={{width: "100%", height: "100%"}} resizeMode="stretch">
                 <ScrollView contentContainerStyle={styles.contentContainer} horizontal={false} style={styles.innercontainer}>
                     <View style={styles.reciperow}>
-                    <Recipe variant={1}></Recipe>
-                    <Recipe></Recipe>
+                    <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={0}></Recipe>
+                    <Recipe variant={2} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={1}></Recipe>
                     </View>
                 
                     <View style={styles.reciperow}>
-                    <Recipe></Recipe>
-                    <Recipe></Recipe>
+                    <Recipe variant={0} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={2}></Recipe>
+                    <Recipe variant={2} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={3}></Recipe>
                     </View>
 
                     <View style={styles.reciperow}>
-                    <Recipe></Recipe>
-                    <Recipe></Recipe>
+                    <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={0}></Recipe>
+                    <Recipe variant={2} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={1}></Recipe>
                     </View>
 
                     <View style={styles.reciperow}>
-                    <Recipe></Recipe>
-                    <Recipe></Recipe>
+                    <Recipe variant={0} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={2}></Recipe>
+                    <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={3}></Recipe>
                     </View>
                 </ScrollView>
             </ImageBackground>

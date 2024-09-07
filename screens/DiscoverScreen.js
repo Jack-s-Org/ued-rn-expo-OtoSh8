@@ -1,26 +1,47 @@
-import { StyleSheet, Text } from "react-native";
+import { ImageBackground, StyleSheet, Text } from "react-native";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from 'expo-linear-gradient';
+import RadarButton from "@/components/radarbutton";
 
 const DiscoverScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
 
-      <View style={{backgroundColor:"red", width: 314, height:498, borderRadius: 14, overflow:"hidden"}}>
-      <View style={{width:"98%", height: "98%", alignSelf:"center"}}>
+<View style={{width: 314, height:498, borderRadius: 14, overflow:"hidden", alignItems:"center", justifyContent:"space-evenly"}}>
+
+
+
+      <View style={{width: "100%", height:"100%", borderRadius: 14, overflow:"hidden", position:"absolute"}}>
+      <LinearGradient
+        colors={['#606060', '#EAEAEA']}
+        style={{width:"100%", height: "100%"}}
+      />
+      </View>
+
+      <View style={{width: 310, height:494, borderRadius: 12, overflow:"hidden", position:"absolute"}}>
       <LinearGradient
         colors={['#6F6F6F', '#D2D2D2']}
         style={{width:"100%", height: "100%"}}
       />
       </View>
-      
-      <LinearGradient
-        colors={['#EAEAEA', '#606060']}
-        style={{width:"100%", height: "100%"}}
-      />
-      
+
+      <View style={{width: 286, height:470, borderRadius: 12, overflow:"hidden", position:"absolute"}}>
+        <ImageBackground source={require("@/assets/screen.png")} style={{width:"100%",height:"100%"}} resizeMode="stretch"></ImageBackground>
       </View>
+
+      </View>
+
+        
+      <View style={{ backgroundColor:"#171717", padding: 2, borderRadius: 9, display: "flex", flexDirection:"row", columnGap:2}}>
+      <RadarButton></RadarButton>
+      <RadarButton></RadarButton>
+      <RadarButton></RadarButton>
+      </View>
+
+
+      
+      
       <Text>Discover</Text>
     </SafeAreaView>
   );
