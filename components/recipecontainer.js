@@ -8,7 +8,7 @@ function RecipeContainer(){
             <ImageBackground source={require("@/assets/recipecon.png")} style={{width: "100%", height: "100%"}} resizeMode="stretch">
                 <ScrollView contentContainerStyle={styles.contentContainer} horizontal={false} style={styles.innercontainer}>
                     <View style={styles.reciperow}>
-                    <Recipe></Recipe>
+                    <Recipe variant={1}></Recipe>
                     <Recipe></Recipe>
                     </View>
                 

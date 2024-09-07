@@ -1,9 +1,9 @@
-import { View, StyleSheet, Text, ImageBackground } from "react-native";
+import { View, StyleSheet, Text, ImageBackground, Image } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import IcoFire from "./icons/fire";
 import IcoTimer from "./icons/timer";
 
-function Recipe(){
+function Recipe(props){
     return(
 <View style={styles.maincon}>
     <View style={styles.imgcon}>
@@ -30,6 +30,18 @@ function Recipe(){
 </View>
     </View>
 
+        <View style={{width:24, height:24, position: "absolute"}}>
+            <ImageBackground source={() => {
+                switch(1){
+                    case 0:
+                        return require("@/assets/burger.png")
+                        case 1:
+                        return require("@/assets/cookie.png")
+                        case 2:
+                        return require("@/assets/paste.png")
+                }
+            }} style={{width:"100%",height:"100%"}} resizeMode="stretch"></ImageBackground>
+        </View>
         </View>
     );
     
