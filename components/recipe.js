@@ -1,5 +1,7 @@
 import { View, StyleSheet, Text, ImageBackground } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import IcoFire from "./icons/fire";
+import IcoTimer from "./icons/timer";
 
 function Recipe(){
     return(
@@ -10,11 +12,24 @@ function Recipe(){
         <ImageBackground source={require("@/assets/food/chocolate_cake.png")} resizeMode="cover" style={{width: 126, height: 126, alignSelf: "center", backgroundColor: "blue",padding: 0, margin: "auto"}}>
             </ImageBackground>
     </View>
-    <View>
-    <Text style={{fontFamily: "K2D", fontSize: 6, fontWeight: 500, alignSelf: "flex-start"}}>DISH NAME:</Text>
+
+    <View style={{ width: 141, rowGap: 6, display: "flex", flexDirection: "column"}}>
+    <View style={{ width: 141}}>
+    <Text style={{fontFamily: "K2D", fontSize: 6, fontWeight: 500, alignSelf: "flex-start", color: "#646464"}}>DISH NAME:</Text>
     <Text style={{fontFamily: "K2D", fontSize: 16, fontWeight: 700}}>Chocolate Cake</Text>
     </View>
-    
+
+<View style={{flexDirection: "row", display: "flex", justifyContent: "space-between"}}>
+    <View style={{ display: "flex", flexDirection: "row", columnGap: 4, alignItems: "center"}}>
+    <IcoTimer></IcoTimer> <Text style={{fontFamily: "K2D",fontSize: 10, fontWeight: 700}}>30 mins</Text>
+    </View>
+
+    <View style={{ display: "flex", flexDirection: "row", columnGap: 4}}>
+    <IcoFire></IcoFire> <Text style={{fontFamily: "K2D",fontSize: 10, fontWeight: 700}}>230 kcal</Text>
+    </View>
+</View>
+    </View>
+
         </View>
     );
     
