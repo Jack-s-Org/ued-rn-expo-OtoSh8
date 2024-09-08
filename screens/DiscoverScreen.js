@@ -33,16 +33,13 @@ const DiscoverScreen = () => {
       </View>
 
         
-      <View style={{ backgroundColor:"#171717", padding: 2, borderRadius: 9, display: "flex", flexDirection:"row", columnGap:2}}>
-      <RadarButton></RadarButton>
-      <RadarButton></RadarButton>
-      <RadarButton></RadarButton>
+      <View style={{ backgroundColor:"#171717", padding: 2, borderRadius: 9, display: "flex", flexDirection:"row", columnGap:2, marginTop: 48}}>
+      <RadarButton variant={0}></RadarButton>
+      <RadarButton variant={1}></RadarButton>
+      <RadarButton variant={2}></RadarButton>
       </View>
 
 
-      
-      
-      <Text>Discover</Text>
     </SafeAreaView>
   );
 };

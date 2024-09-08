@@ -9,21 +9,21 @@ function RecipeContainer(){
                 <ScrollView contentContainerStyle={styles.contentContainer} horizontal={false} style={styles.innercontainer}>
                     <View style={styles.reciperow}>
                     <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={0}></Recipe>
-                    <Recipe variant={2} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={1}></Recipe>
+                    <Recipe variant={2} name="Stir Fry Noodles" time="30 mins" cal="230 kcal" image={1}></Recipe>
                     </View>
                 
                     <View style={styles.reciperow}>
-                    <Recipe variant={0} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={2}></Recipe>
-                    <Recipe variant={2} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={3}></Recipe>
+                    <Recipe variant={0} name="Egg Fried Rice" time="30 mins" cal="230 kcal" image={2}></Recipe>
+                    <Recipe variant={2} name="Basted Steak" time="30 mins" cal="230 kcal" image={3}></Recipe>
                     </View>
 
                     <View style={styles.reciperow}>
                     <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={0}></Recipe>
-                    <Recipe variant={2} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={1}></Recipe>
+                    <Recipe variant={2} name="Basted Steak" time="30 mins" cal="230 kcal" image={1}></Recipe>
                     </View>
 
                     <View style={styles.reciperow}>
-                    <Recipe variant={0} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={2}></Recipe>
+                    <Recipe variant={0} name="Egg Fried Rice" time="30 mins" cal="230 kcal" image={2}></Recipe>
                     <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={3}></Recipe>
                     </View>
                 </ScrollView>

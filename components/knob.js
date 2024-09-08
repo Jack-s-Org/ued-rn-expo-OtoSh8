@@ -3,6 +3,7 @@ import { View, StyleSheet, ImageBackground, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import "@fontsource/k2d";
 import { BoxShadow } from 'react-native-shadow';
+import { LinearGradient } from "expo-linear-gradient";
 
 
 function Knob(){
@@ -23,7 +24,8 @@ function Knob(){
     return(
       
         <View style={styles.knobconcave}>
-          
+          <LinearGradient colors={['#6F6F6F', '#EAEAEA']} style={{width: "100%", height: "100%", position: "absolute", borderRadius: 100}}>
+          </LinearGradient>
 
           <TouchableOpacity style={{borderRadius: 100}} activeOpacity={1} onPressIn={() => {
 
@@ -71,7 +73,6 @@ const styles = StyleSheet.create({
     height: 72,
     alignItems: "center",
     justifyContent: "center",
-    
   },
   knobhole: {
     borderRadius: 100,
