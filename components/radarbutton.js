@@ -21,12 +21,11 @@ function RadarButton({variant}){
                 icodown = require("@/assets/chatdown.png");
                 break;
         case 2:
-                    //next
-                    ico = require("@/assets/next.png");
-                    icodown = require("@/assets/nextdown.png");
-                    break;
+                //next
+                ico = require("@/assets/next.png");
+                icodown = require("@/assets/nextdown.png");
+                break;
     }
-    
     
     const activeimg = Down
     ? require("@/assets/radar_down.png")
