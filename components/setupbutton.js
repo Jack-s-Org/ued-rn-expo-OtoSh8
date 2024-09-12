@@ -2,7 +2,7 @@ import { ImageBackground, View } from "react-native";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-function SetupButton(){
+function SetupButton({nav}){
     let [Down, setDown] = useState(false);
 
     const activeimg = Down
@@ -11,7 +11,9 @@ function SetupButton(){
 
 
     return(
-        <TouchableOpacity onPressIn={() => {setDown(true)}} onPressOut={() => {setDown(false)}} activeOpacity={1}>
+        <TouchableOpacity onPressIn={() => {setDown(true)}} onPressOut={() => {setDown(false);
+            nav.replace("Quiz", {screen: "Quiz1"})
+        }} activeOpacity={1}>
         <View style={{width: 54, height: 54, borderRadius: 7,shadowColor: "#250900", shadowOpacity: 0.65, shadowRadius: 8, shadowOffset: {width: 0, height: 12}}}>
             <ImageBackground source={activeimg} style={{width:"100%", height: "100%"}}></ImageBackground>
         </View>

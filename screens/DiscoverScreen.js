@@ -4,15 +4,29 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from 'expo-linear-gradient';
 import RadarButton from "@/components/radarbutton";
 import SetupButton from "@/components/setupbutton";
+import IcoRadar from "@/components/icons/radar";
+import IcoSquad from "@/components/icons/squad";
+import IcoChat from "@/components/icons/chat";
+import { GestureHandlerRootView
 
-const DiscoverScreen = () => {
+ } from "react-native-gesture-handler";
+const DiscoverScreen = ({navigation}) => {
   return (
+    <GestureHandlerRootView>
     <SafeAreaView style={styles.container}>
-      <View style={{width: "100%", paddingHorizontal: 26}}>
-      <Text style={{fontFamily: "K2D", fontSize: 20, marginBottom: 22, alignSelf: "flex-start"}}>Homecook Radar</Text>
+      <View style={{width: "100%", paddingHorizontal: 26, display:"flex",flexDirection:"row", columnGap:10, justifyContent:"space-between"}}>
+      <View style={{display:"flex",flexDirection:"row", columnGap:10, marginBottom:16}}>
+        <IcoRadar></IcoRadar>
+      <Text style={{fontFamily: "K2D", fontSize: 20,textAlignVertical:"center" ,alignSelf: "flex-start"}}>Homecook Radar</Text>
       </View>
 
-<View style={{width: 338, height:498, borderRadius: 14, overflow:"hidden", alignItems:"center", justifyContent:"space-evenly"}}>
+      <View style={{display:"flex",flexDirection:"row", columnGap:20, alignItems:"flex-start", paddingTop: 6}}>
+        <IcoSquad></IcoSquad>
+        <IcoChat></IcoChat>
+        </View>
+      </View>
+
+<View style={{width: 338, height:498, borderRadius: 14, overflow:"hidden", alignItems:"center", justifyContent:"center"}}>
 
 
 
@@ -30,21 +44,23 @@ const DiscoverScreen = () => {
       />
       </View>
 
-      <View style={{width: 310, height:470, borderRadius: 12, overflow:"hidden", position:"absolute"}}>
+      <View style={{width: 310, height:470, borderRadius: 12, overflow:"hidden"}}>
         <ImageBackground source={require("@/assets/screen.png")} style={{width:"100%",height:"100%"}} resizeMode="stretch"></ImageBackground>
       </View>
-      </View>
+
+    </View>
 
         
       <View style={{ backgroundColor:"#171717", padding: 2, borderRadius: 9, display: "flex", flexDirection:"row", columnGap:2, marginTop: 48}}>
-      <SetupButton></SetupButton>
-      <RadarButton variant={0}></RadarButton>
-      <RadarButton variant={1}></RadarButton>
-      <RadarButton variant={2}></RadarButton>
+      <SetupButton nav={navigation}></SetupButton>
+      <RadarButton activate={false} variant={0}></RadarButton>
+      <RadarButton activate={false}  variant={1}></RadarButton>
+      <RadarButton activate={false}  variant={2}></RadarButton>
       </View>
 
 
     </SafeAreaView>
+    </GestureHandlerRootView>
   );
 };
 

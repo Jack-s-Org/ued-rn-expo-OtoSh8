@@ -1,18 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SBar from "@/components/sBar";
 import Knob from "@/components/knob";
 import { LinearGradient } from 'expo-linear-gradient';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import RecipeContainer from "@/components/recipecontainer";
-import Recipe from "@/components/recipe";
 
-const HomeScreen = () => {
+
+const HomeScreen = ({navigation}) => {
   return (
     <GestureHandlerRootView>
     <SafeAreaView style={styles.container}>
-
-      <SBar/>
+      <SBar></SBar>
       <View style={styles.container_knob}>
       <LinearGradient
         colors={['#C9C9C9', '#898989']}
@@ -24,9 +23,9 @@ const HomeScreen = () => {
       <Knob></Knob>
       <Knob></Knob>
       </View>
-
-    <RecipeContainer>
+    <RecipeContainer nav={navigation}>
     </RecipeContainer>
+
     </SafeAreaView>
     </GestureHandlerRootView>
   );
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "top",
-    rowGap: 18
+    rowGap: 18,
   },
 });
 

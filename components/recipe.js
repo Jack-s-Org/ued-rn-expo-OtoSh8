@@ -2,8 +2,10 @@ import { View, StyleSheet, Text, ImageBackground, Image } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import IcoFire from "./icons/fire";
 import IcoTimer from "./icons/timer";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-function Recipe({name, time, cal, variant, image}){
+
+function Recipe({name, time, cal, variant, image, navigation}){
     let imageSource;
     let foodSource;
 
@@ -41,35 +43,44 @@ function Recipe({name, time, cal, variant, image}){
 
 
     return(
+      <TouchableOpacity activeOpacity={1}>
 <View style={styles.maincon}>
     <View style={styles.imgcon}>
         <LinearGradient colors={['#646464', '#F2F2F2']} style={{width: "100%", height: "100%", opacity: 1, display: "flex", alignItems: "center", position: "absolute"}}>
         </LinearGradient>
-        <ImageBackground source={foodSource} resizeMode="cover" style={{width: 126, height: 126, alignSelf: "center", backgroundColor: "blue",padding: 0, margin: "auto"}}>
+        <ImageBackground source={foodSource} resizeMode="cover" style={{width: 126, height: 126, alignSelf: "center", padding: 0, margin: "auto"}}>
             </ImageBackground>
     </View>
 
+
+
     <View style={{ width: 141, rowGap: 6, display: "flex", flexDirection: "column"}}>
     <View style={{ width: 141}}>
-    <Text style={{fontFamily: "K2D", fontSize: 6, fontWeight: 500, alignSelf: "flex-start", color: "#646464"}}>DISH NAME:</Text>
-    <Text style={{fontFamily: "K2D", fontSize: 16, fontWeight: 700}}>{name}</Text>
+    <Text style={{fontFamily: "K2D", fontSize: 6, fontWeight: "500", alignSelf: "flex-start", color: "#646464"}}>DISH NAME:</Text>
+    <Text style={{fontFamily: "K2D", fontSize: 16, fontWeight: "700"}}>{name}</Text>
     </View>
 
 <View style={{flexDirection: "row", display: "flex", justifyContent: "space-between"}}>
     <View style={{ display: "flex", flexDirection: "row", columnGap: 4, alignItems: "center"}}>
-    <IcoTimer></IcoTimer> <Text style={{fontFamily: "K2D",fontSize: 10, fontWeight: 700}}>{time}</Text>
+    <IcoTimer></IcoTimer> 
+    <Text style={{fontFamily: "K2D",fontSize: 10, fontWeight: "700"}}>{time}</Text>
     </View>
 
     <View style={{ display: "flex", flexDirection: "row", columnGap: 4}}>
-    <IcoFire></IcoFire> <Text style={{fontFamily: "K2D",fontSize: 10, fontWeight: 700}}>{cal}</Text>
+    <IcoFire></IcoFire> 
+    <Text style={{fontFamily: "K2D",fontSize: 10, fontWeight: "700"}}>{cal}</Text>
     </View>
 </View>
     </View>
+
+
+
 
         <View style={{width:24, height:24, position: "absolute", right: 6, bottom: 40}}>
            <ImageBackground source={imageSource} style={{width:"100%",height:"100%"}} resizeMode="stretch"></ImageBackground>
         </View>
         </View>
+        </TouchableOpacity>
     );
     
 }

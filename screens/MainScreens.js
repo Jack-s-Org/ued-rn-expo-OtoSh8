@@ -10,6 +10,7 @@ import DiscoverScreen from "./DiscoverScreen";
 import SettingsScreen from "./SettingsScreen";
 import AddScreen from "./AddScreen";
 import {TouchableOpacity, Image } from 'react-native';
+import RecipeScreen from "./RecipeScreen";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -158,14 +159,11 @@ const MainScreens = () => {
         options={{ headerShown: false }}
       />
       <MainStacks.Screen
-        name="Add"
-        component={AddScreen}
-        options={{ animation: "fade_from_bottom" }}
-      />
-      <MainStacks.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ animation: "fade_from_bottom" }}
+        name="Recipe"
+        component={RecipeScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
       />
     </MainStacks.Navigator>
   );

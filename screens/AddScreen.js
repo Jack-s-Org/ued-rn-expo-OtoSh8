@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const AddScreen = () => {
   return (
     <SafeAreaView>
-      <Text>Add</Text>
+      <Text>Asdsdsddd</Text>
     </SafeAreaView>
   );
 };

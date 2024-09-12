@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { ImageBackground, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { GestureHandlerRootView, TouchableOpacity } from "react-native-gesture-handler";
 
-function RadarButton({variant}){
+function RadarButton({variant, activate}){
     let img;
-    let [Down, setDown] = useState(false);
+    let [Down, setDown] = useState(!activate);
 
     let ico;
     let icodown;
 
+    
     switch(variant){
         case 0:
             //fav
@@ -27,18 +28,29 @@ function RadarButton({variant}){
                 break;
     }
     
-    const activeimg = Down
+
+
+
+    let activeimg = Down
     ? require("@/assets/radar_down.png")
     : require("@/assets/radar_up.png");
 
-    const activeico = Down
+
+    let activeico = Down
     ? icodown
     : ico;
 
-
     return(
-        <TouchableOpacity onPressIn={() => {setDown(true)}} onPressOut={() => {
-            setDown(false)
+        
+        <TouchableOpacity onPressIn={() => { 
+            if(activate == true)
+            {setDown(true)}
+        }} 
+            
+            onPressOut={() => {
+                if(activate == true)
+
+            {setDown(false)
 
             switch(variant){
                 case 0: //fav
@@ -47,7 +59,7 @@ function RadarButton({variant}){
                     break;
                 case 2: //next
                     break;
-            }
+            }}
         }} activeOpacity={1}>
         <View style={{width: 94, height:54, elevation: 10, shadowColor: "#250900", shadowOpacity: 0.65, shadowRadius: 8, shadowOffset: {width: 0, height: 12}, borderRadius:7}}>
             <ImageBackground source={activeimg} style={{width:"100%", height:"100%", justifyContent:"center"}} resizeMode="stretch">
