@@ -26,10 +26,16 @@ function PfpContainer(){
       }
     };
 
+    
+    let activeimg = (image == null)
+    ? require("@/assets/redlight.png")
+    : require("@/assets/greenlight.png");
+
+
 
 return(
 
-    <View style={{width:"100%",alignItems:"flex-start",display:"flex",flexDirection:"column"}}>
+    <View style={{width:"100%",alignItems:"flex-start",display:"flex",flexDirection:"column",marginBottom:-16,marginLeft:22}}>
     <Text style={{fontFamily:"K2D", fontSize:14,color:"#646464"}}>PORTRAIT SELFIE:</Text>
 
     <View style={{display:"flex",flexDirection:"row",columnGap:6, justifyContent:"center", alignItems:"center", alignSelf:"center"}}>
@@ -47,7 +53,7 @@ return(
 
     </View>
     
-    <Image source={require("@/assets/redlight.png")} style={{width:20,height:20}}></Image>
+    <Image source={activeimg} style={{width:20,height:20}}></Image>
     </View>
 
 

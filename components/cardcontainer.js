@@ -14,11 +14,10 @@ function CardContainer({text}){
         return;
       }
   
-      // Open the image picker
       let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
-        aspect: [4, 4],
+        aspect: [85.6, 54],
         quality: 1,
       });
   
@@ -27,29 +26,36 @@ function CardContainer({text}){
       }
     };
 
+       
+    let activeimg = (image == null)
+    ? require("@/assets/redlight.png")
+    : require("@/assets/greenlight.png");
+
 
 return(
 
-    <View style={{width:"100%",alignItems:"flex-start",display:"flex",flexDirection:"column"}}>
-
+    <View style={{width:"100%",alignItems:"flex-start",display:"flex",flexDirection:"column",marginLeft:22}}>
+      <Text  style={{fontFamily:"K2D", fontSize:14,color:"#646464"}}>{text}</Text>
     <View style={{display:"flex",flexDirection:"row",columnGap:6, justifyContent:"center", alignItems:"center", alignSelf:"center"}}>
         
     <View style={{width:324,height:167, borderRadius: 5, overflow:"hidden",backgroundColor:"red", display:"flex",alignItems:"center",justifyContent:"center"}}>
     <LinearGradient colors={['#646464', '#CACACA']} style={{width: "100%", height: "100%", position:"absolute"}}>
     </LinearGradient>
 
-    <Image source={require("@/assets/cardpics.png")}  style={{width:296, height:139}}></Image>
+    <Image source={require("@/assets/cardpics.png")}  style={{width:296, height:139}}>
+    
+    </Image>
 
-    <View onPress={pickImage} style={{width:100,height:100,borderRadius:100,overflow:"hidden",position:"absolute",left: 22, top:22}}>
+
+    <View style={{width:296,height:139,overflow:"hidden",position:"absolute"}}>
     <TouchableOpacity onPress={pickImage} style={{width:"100%", height:"100%"}}>
         {image && <Image source={{ uri: image }} style={{width:"100%", height:"100%"}} />}
     </TouchableOpacity>
     </View>
 
-
     </View>
     
-    <Image source={require("@/assets/redlight.png")} style={{width:20,height:20}}></Image>
+    <Image source={activeimg} style={{width:20,height:20}}></Image>
     </View>
 
 
