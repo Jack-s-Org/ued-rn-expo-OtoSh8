@@ -11,12 +11,15 @@ function LandingOne({navigation}){
     }
 
     return(
-        
+        <View style={{width:"100%", height:"100%"}}>
+        <ImageBackground style={{width:"100%", height:"100%", position:"absolute"}} source={require("@/assets/landingbg.png")}>
+        </ImageBackground>
+
         <GestureHandlerRootView>
 
         <SafeAreaView style={styles.container}>
-        <ImageBackground style={{width:"100%", height:"100%", position:"absolute"}} source={require("@/assets/landingbg.png")}>
-        </ImageBackground>
+
+
 
         <View style={{width:"100%",display:"flex",flexDirection:"row-reverse"}}>
         <TouchableOpacity onPress={Skip}>
@@ -41,12 +44,12 @@ function LandingOne({navigation}){
         </SafeAreaView>
         
         </GestureHandlerRootView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: "#A7A7A7",
       display: "flex",
       flexDirection: "column",
       flex: 1,

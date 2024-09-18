@@ -51,9 +51,16 @@ const DiscoverScreen = ({navigation}) => {
       </View>
 
     </View>
-
-        
+      
       <View style={{ backgroundColor:"#171717", padding: 2, borderRadius: 9, display: "flex", flexDirection:"row", columnGap:2, marginTop: 48}}>
+      
+      <View style={{display:"flex",flexDirection:"row",position:"absolute",top:-20,width:"100%"}}>
+      <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464",marginLeft:12}}>Set Up</Text>
+      <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464",marginLeft:42}}>Favourite</Text>
+      <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464",marginLeft:60}}>Chat</Text>
+      <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464",marginLeft:76}}>Next</Text>
+      </View>
+
       <SetupButton nav={navigation}></SetupButton>
       <RadarButton activate={false} variant={0}></RadarButton>
       <RadarButton activate={false}  variant={1}></RadarButton>

@@ -21,8 +21,8 @@ function QuizThree({navigation}){
           <View style={styles.container2}>
         <Text style={{fontFamily: "K2D", fontSize: 20, textAlignVertical:"center"}}>Step 3 of 4</Text>
 
-        <OptionRoller text={"ETHNICITY:"}></OptionRoller>
-        <OptionRoller text={"EMPLOYMENT STATUS:"}></OptionRoller>
+        <OptionRoller text={"ETHNICITY:"}  options={["NONE", "CHINESE", "MALAY","INDIAN","OTHERS"]}></OptionRoller>
+        <OptionRoller text={"EMPLOYMENT STATUS:"}  options={["NONE", "EMPLOYED", "SELF-EMPLOYED", "UNEMPLOYED"]}></OptionRoller>
         </View>
 
         <View style={{position:"absolute",bottom: 20}}>

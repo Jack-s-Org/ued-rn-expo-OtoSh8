@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { View, StyleSheet, ImageBackground, Text, PanResponder } from "react-native";
+import { View, StyleSheet, ImageBackground, Text, PanResponder, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import "@fontsource/k2d";
 import { BoxShadow } from 'react-native-shadow';
 import { LinearGradient } from "expo-linear-gradient";
 import { useRef } from "react";
 
-function Knob(){
+function Knob({variant}){
 
   const [knobvalue, setKnobvalue] = useState(0);
 
@@ -15,25 +15,21 @@ function Knob(){
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (event, gestureState) => {
         const { dy } = gestureState;
-        if (dy < 0) {
-          console.log(`Dragged Up: ${Math.abs(dy)} units`);
-          setKnobvalue((prevValue) => prevValue + Math.abs(dy/10));
-          
-            // console.log('knobvalue:' + knobvalue.toString());
-        } else {
-          console.log(`Dragged Down: ${dy} units`);
-          setKnobvalue((prevValue) => prevValue - Math.abs(dy/10));
-          // console.log('knobvalue:' + knobvalue.toString());
-        }
+        setKnobvalue((prevValue) => {
+          const newValue = prevValue + (dy < 0 ? Math.abs(dy/10) : -Math.abs(dy/10)); // Adjust based on up or down
+          return Math.max(0, Math.min(newValue, 360)); // Clamp between 0 and 360
+        });
       },
       onPanResponderRelease: (event, gestureState) => {
-        const { dy } = gestureState;
-        if (dy < 0) {
-          console.log('Released after dragging up');
-        } else {
-          console.log('Released after dragging down');
-        }
-      }
+        setKnobvalue((prevValue) => {
+          // Snap to the nearest right angle
+          const rightAngles = [0, 45, 90, 135, 180, 225, 270,315, 360];
+          let closestAngle = rightAngles.reduce((prev, curr) =>
+            Math.abs(curr - prevValue) < Math.abs(prev - prevValue) ? curr : prev
+          );
+          return closestAngle;
+        });
+      },
     })
   ).current;
 
@@ -51,7 +47,9 @@ function Knob(){
     };
 
     return(
-      
+      <View  style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+      <View style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+        <ImageBackground source={require("@/assets/knobmarker.png")} style={{width:80,height:80,display:"flex", alignItems:"center",justifyContent:"center"}}>
         <View style={styles.knobconcave}  {...panResponder.panHandlers} >
           <LinearGradient colors={['#6F6F6F', '#EAEAEA']} style={{width: "100%", height: "100%", position: "absolute", borderRadius: 100}}>
           </LinearGradient>
@@ -67,10 +65,12 @@ function Knob(){
 
           <View style={styles.knobimage_}>
           <ImageBackground style={styles.knobimage} source={require("@/assets/knob_inner.png")} >
-          
-          <Text style={{fontFamily: "K2D", color: "white"}}>
+          <Image source={require("@/assets/pointer.png")} style={{width:58,height:58, transform: [{ rotate: `${knobvalue}deg` }] }} resizeMode="stretch">
+
+          </Image>
+          {/* <Text style={{fontFamily: "K2D", color: "white"}}>
           {Math.round(knobvalue)}
-          </Text>
+          </Text> */}
           
           </ImageBackground>
           </View>
@@ -79,12 +79,17 @@ function Knob(){
           </ImageBackground>
     
         </View>
-        
         </View>
-        
         </TouchableOpacity>
-        
+        </View>
+        </ImageBackground>
+        </View>
 
+        <ImageBackground source={require("@/assets/smallroller.png")} style={{width:64,height:14,marginVertical:2,borderRadius:2}}>
+        <View style={{width:"100%",height:"100%",overflow:"hidden",alignItems:"center"}}>
+            <Text style={{fontFamily:"K2DBOLD",fontSize:8}}>BREAKFAST</Text>
+        </View>
+        </ImageBackground>
         </View>
     );
 }
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
 
     alignItems: "center",
-      justifyContent: "center",
+    justifyContent: "center",
   },
     knobimage: {
       position: "absolute",
@@ -145,4 +150,16 @@ const styles = StyleSheet.create({
   });
 
   
+
+  function clamp(value, min, max) {
+    if (value < min) {
+      return min;
+    } else if (value > max) {
+      return max;
+    } else {
+      return value;
+    }
+  }
+
+
 export default Knob;

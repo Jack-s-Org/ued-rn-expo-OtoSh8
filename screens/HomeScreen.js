@@ -12,13 +12,14 @@ const HomeScreen = ({navigation}) => {
     <GestureHandlerRootView>
     <SafeAreaView style={styles.container}>
       <SBar></SBar>
+
       <View style={styles.container_knob}>
       <LinearGradient
         colors={['#C9C9C9', '#898989']}
         style={styles.background}
       />
       <View style={styles.container_knob_inner}></View>
-
+      <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464",position:"absolute",left:12,top:4}}>Filter</Text>
       <Knob></Knob>
       <Knob></Knob>
       <Knob></Knob>
@@ -36,14 +37,14 @@ const styles = StyleSheet.create({
     borderRadius: 13,
     position: "absolute",
     width: 340,
-    height: 115,
+    height: 124,
     top:  2,
     left: 2,
     backgroundColor: "#A7A7A7"
   },
   background: {
     width: 344,
-    height: 119,
+    height: 128,
     position: "absolute",
     top: 0,
     left: 0,
@@ -51,14 +52,15 @@ const styles = StyleSheet.create({
   },
   container_knob: {
     width: 344,
-    height: 119,
+    height: 128,
     overflow: "hidden",
     borderRadius: 16,
     display: "flex",
     flexDirection: "row",
-    columnGap: 32,
     paddingHorizontal: 32,
-    paddingVertical: 18
+    paddingVertical: 18,
+    columnGap:24,
+    justifyContent:"space-evenly"
   },
   container: {
     paddingTop: -20,
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "top",
-    rowGap: 18,
+    rowGap: 10,
   },
 });
 

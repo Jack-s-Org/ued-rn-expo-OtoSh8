@@ -11,6 +11,7 @@ function RecipeContainer({nav}){
     
     return(
         <View style={styles.Maincontainer}>
+            <View style={{width:344,height:4,backgroundColor:"#717171"}}></View>
             <ImageBackground source={require("@/assets/recipecon.png")} style={{width: "100%", height: "100%"}} resizeMode="stretch">
                 <ScrollView contentContainerStyle={styles.contentContainer} horizontal={false} style={styles.innercontainer}>
 
@@ -19,28 +20,43 @@ function RecipeContainer({nav}){
                     <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={0}></Recipe>
                     </TouchableOpacity>
+
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={2} name="Stir Fry Noodles" time="30 mins" cal="230 kcal" image={1}></Recipe>
+                    </TouchableOpacity>
                     </View>
                 
                     <View style={styles.reciperow}>
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={0} name="Egg Fried Rice" time="30 mins" cal="230 kcal" image={2}></Recipe>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={2} name="Basted Steak" time="30 mins" cal="230 kcal" image={3}></Recipe>
+                    </TouchableOpacity>
                     </View>
 
                     <View style={styles.reciperow}>
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={0}></Recipe>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={2} name="Basted Steak" time="30 mins" cal="230 kcal" image={1}></Recipe>
+                    </TouchableOpacity>
                     </View>
 
                     <View style={styles.reciperow}>
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={0} name="Egg Fried Rice" time="30 mins" cal="230 kcal" image={2}></Recipe>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={handleReplace} activeOpacity={1}>
                     <Recipe variant={1} name="Chocolate Cake" time="30 mins" cal="230 kcal" image={3}></Recipe>
+                    </TouchableOpacity>
                     </View>
 
 
                 </ScrollView>
             </ImageBackground>
-      
+            <View style={{width:344,height:4,backgroundColor:"#C9C9C9"}}></View>
         </View>
     );
 }

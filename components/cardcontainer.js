@@ -45,7 +45,9 @@ return(
     <Image source={require("@/assets/cardpics.png")}  style={{width:296, height:139}}>
     
     </Image>
+    <Image source={require("@/assets/addpic.png")} style={{width:189,height:38,position:"absolute"}}>
 
+    </Image>
 
     <View style={{width:296,height:139,overflow:"hidden",position:"absolute"}}>
     <TouchableOpacity onPress={pickImage} style={{width:"100%", height:"100%"}}>
