@@ -1,5 +1,5 @@
 import { ImageBackground, StyleSheet, Text } from "react-native";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from 'expo-linear-gradient';
 import RadarButton from "@/components/radarbutton";
@@ -43,9 +43,11 @@ const DiscoverScreen = ({navigation}) => {
         style={{width:"100%", height: "100%"}}
       />
       </View>
-
+      
       <View style={{width: 310, height:470, borderRadius: 12, overflow:"hidden"}}>
-        <ImageBackground source={require("@/assets/screen.png")} style={{width:"100%",height:"100%"}} resizeMode="stretch"></ImageBackground>
+        <ImageBackground source={require("@/assets/screen.png")} style={{width:"100%",height:"100%",alignItems:"center",justifyContent:"center"}} resizeMode="stretch">
+        <Image source={require("@/assets/errorpfp.png")}  style={{width: 196, height:170,marginBottom:32}}></Image>
+        </ImageBackground>
       </View>
 
     </View>

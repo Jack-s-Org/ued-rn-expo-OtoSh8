@@ -12,27 +12,26 @@ function Knob(){
 
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: () => true, // This determines if the gesture should be handled
+      onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (event, gestureState) => {
-        // gestureState provides various information like distance traveled
-        const { dy } = gestureState; // dy = distance traveled in the Y direction
+        const { dy } = gestureState;
         if (dy < 0) {
           console.log(`Dragged Up: ${Math.abs(dy)} units`);
-            setKnobvalue(knobvalue+Math.abs(dy));
+          setKnobvalue((prevValue) => prevValue + Math.abs(dy/10));
+          
+            // console.log('knobvalue:' + knobvalue.toString());
         } else {
           console.log(`Dragged Down: ${dy} units`);
-          setKnobvalue(knobvalue-Math.abs(dy));
+          setKnobvalue((prevValue) => prevValue - Math.abs(dy/10));
+          // console.log('knobvalue:' + knobvalue.toString());
         }
       },
       onPanResponderRelease: (event, gestureState) => {
-        // Handle release
         const { dy } = gestureState;
         if (dy < 0) {
           console.log('Released after dragging up');
-          setKnobvalue(knobvalue+Math.abs(dy));
         } else {
           console.log('Released after dragging down');
-          setKnobvalue(knobvalue-Math.abs(dy));
         }
       }
     })

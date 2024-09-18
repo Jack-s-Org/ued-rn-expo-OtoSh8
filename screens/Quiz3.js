@@ -8,6 +8,7 @@ import QuizNext from "@/components/quiznext";
 import QuizBefore from "@/components/quizbefore";
 import TextBox from "@/components/textbox";
 import TextBoxBig from "@/components/textboxbig";
+import OptionRoller from "@/components/optionroller";
 
 
 function QuizThree({navigation}){
@@ -20,17 +21,15 @@ function QuizThree({navigation}){
           <View style={styles.container2}>
         <Text style={{fontFamily: "K2D", fontSize: 20, textAlignVertical:"center"}}>Step 3 of 4</Text>
 
-        <PfpContainer text={"PROFILE PICTURE:"}></PfpContainer>
-        <TextBox placeholdertxt={"FIRST NAME"} text={"FIRST NAME:"}></TextBox>
-        <TextBox placeholdertxt={"LAST NAME"} text={"LAST NAME:"}></TextBox>
-        <TextBoxBig placeholdertxt={"DESCRIPTION"} text={"DESCRIPTION:"}></TextBoxBig>
+        <OptionRoller text={"ETHNICITY:"}></OptionRoller>
+        <OptionRoller text={"EMPLOYMENT STATUS:"}></OptionRoller>
         </View>
 
         <View style={{position:"absolute",bottom: 20}}>
 
         <View style={{display:"flex",paddingHorizontal:2,paddingVertical:2,backgroundColor:"#161616", borderRadius:9,flexDirection:"row", columnGap:2,position:"relative"}}>
         <QuizBefore nav={navigation} page={1}></QuizBefore>
-        <QuizNext></QuizNext>
+        <QuizNext></QuizNext> 
         </View>
         </View>
         </SafeAreaView>
