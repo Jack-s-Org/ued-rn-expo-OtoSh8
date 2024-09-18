@@ -8,6 +8,8 @@ import LandingThree from "./Landing3";
 import LandingTwo from "./Landing2";
 import { TouchableOpacity, GestureHandlerRootView } from "react-native-gesture-handler";
 import QuizOne from "./Quiz1";
+import QuizTwo from "./Quiz2";
+import QuizThree from "./Quiz3";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,6 +25,20 @@ const QuizScreens = ({navigation}) => {
       <MainStacks.Screen
         name="Quiz1"
         component={QuizOne}
+        options={{ animation: "slide_from_right",
+          headerShown: false,
+         }}
+      />
+      <MainStacks.Screen
+        name="Quiz2"
+        component={QuizTwo}
+        options={{ animation: "slide_from_right",
+          headerShown: false,
+         }}
+      />
+      <MainStacks.Screen
+        name="Quiz3"
+        component={QuizThree}
         options={{ animation: "slide_from_right",
           headerShown: false,
          }}

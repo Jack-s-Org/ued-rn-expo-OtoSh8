@@ -6,9 +6,11 @@ import PfpContainer from "@/components/pfp";
 import CardContainer from "@/components/cardcontainer";
 import QuizNext from "@/components/quiznext";
 import QuizBefore from "@/components/quizbefore";
+import TextBox from "@/components/textbox";
+import TextBoxBig from "@/components/textboxbig";
 
 
-function QuizOne({navigation}){
+function QuizTwo({navigation}){
 
 
 
@@ -19,22 +21,19 @@ function QuizOne({navigation}){
         <SafeAreaView style={styles.container}>
 
           <View style={styles.container2}>
-        <Text style={{fontFamily: "K2D", fontSize: 20, textAlignVertical:"center"}}>Step 1 of 4</Text>
+        <Text style={{fontFamily: "K2D", fontSize: 20, textAlignVertical:"center"}}>Step 2 of 4</Text>
 
-        <PfpContainer text={"PORTRAIT SELFIE:"}></PfpContainer>
-        <CardContainer text={"FRONT IC:"}></CardContainer>
-        <CardContainer text={"BACK IC:"}></CardContainer>
-
+        <PfpContainer text={"PROFILE PICTURE:"}></PfpContainer>
+        <TextBox placeholdertxt={"FIRST NAME"} text={"FIRST NAME:"}></TextBox>
+        <TextBox placeholdertxt={"LAST NAME"} text={"LAST NAME:"}></TextBox>
+        <TextBoxBig placeholdertxt={"DESCRIPTION"} text={"DESCRIPTION:"}></TextBoxBig>
         </View>
 
         <View style={{position:"absolute",bottom: 20}}>
-        <Text style={{fontFamily:"K2D", fontSize:14, color:"#646464", marginBottom:4}}>
-            -Please avoid using camera flashes {"\n"}
-        -Make sure photo is clear without reflections or blurs.</Text>
 
-        <View style={{display:"flex",paddingHorizontal:2,paddingVertical:2,backgroundColor:"#161616", borderRadius:9,flexDirection:"row", columnGap:2}}>
-        <QuizBefore nav={navigation} page={0}></QuizBefore>
-        <QuizNext page={0} nav={navigation}></QuizNext>
+        <View style={{display:"flex",paddingHorizontal:2,paddingVertical:2,backgroundColor:"#161616", borderRadius:9,flexDirection:"row", columnGap:2,position:"relative"}}>
+        <QuizBefore nav={navigation} page={1}></QuizBefore>
+        <QuizNext nav={navigation} page={1}></QuizNext>
         </View>
         </View>
         </SafeAreaView>
@@ -42,6 +41,7 @@ function QuizOne({navigation}){
         </GestureHandlerRootView>
     )
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -53,12 +53,16 @@ const styles = StyleSheet.create({
       rowGap: 0,
       paddingHorizontal: 24,
     },
+
     container2: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      rowGap: 18,
+      rowGap: 12,
     },
+
+      
+
   });
 
-export default QuizOne;
+export default QuizTwo;

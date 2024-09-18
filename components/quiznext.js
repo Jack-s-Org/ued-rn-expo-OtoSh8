@@ -2,16 +2,19 @@ import { useState } from "react";
 import { Text, Image, View, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-function QuizNext({ page })
+function QuizNext({ page, nav})
 {
     let [Down, setDown] = useState(false);
 
     const OnNext = () => {
         setDown(false);
         switch(page){
+            
             case 0:
-                break;
+                nav.push("Quiz2");
+            break;
             case 1:
+                nav.push("Quiz3");
                 break;
             case 2:
                 break;

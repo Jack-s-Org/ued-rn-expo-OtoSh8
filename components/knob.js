@@ -1,13 +1,43 @@
 import { useState } from "react";
-import { View, StyleSheet, ImageBackground, Text } from "react-native";
+import { View, StyleSheet, ImageBackground, Text, PanResponder } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import "@fontsource/k2d";
 import { BoxShadow } from 'react-native-shadow';
 import { LinearGradient } from "expo-linear-gradient";
-
+import { useRef } from "react";
 
 function Knob(){
+
   const [knobvalue, setKnobvalue] = useState(0);
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true, // This determines if the gesture should be handled
+      onPanResponderMove: (event, gestureState) => {
+        // gestureState provides various information like distance traveled
+        const { dy } = gestureState; // dy = distance traveled in the Y direction
+        if (dy < 0) {
+          console.log(`Dragged Up: ${Math.abs(dy)} units`);
+            setKnobvalue(knobvalue+Math.abs(dy));
+        } else {
+          console.log(`Dragged Down: ${dy} units`);
+          setKnobvalue(knobvalue-Math.abs(dy));
+        }
+      },
+      onPanResponderRelease: (event, gestureState) => {
+        // Handle release
+        const { dy } = gestureState;
+        if (dy < 0) {
+          console.log('Released after dragging up');
+          setKnobvalue(knobvalue+Math.abs(dy));
+        } else {
+          console.log('Released after dragging down');
+          setKnobvalue(knobvalue-Math.abs(dy));
+        }
+      }
+    })
+  ).current;
+
   const shadowOpt = {
     width: 72,
     height: 72,
@@ -23,14 +53,11 @@ function Knob(){
 
     return(
       
-        <View style={styles.knobconcave}>
+        <View style={styles.knobconcave}  {...panResponder.panHandlers} >
           <LinearGradient colors={['#6F6F6F', '#EAEAEA']} style={{width: "100%", height: "100%", position: "absolute", borderRadius: 100}}>
           </LinearGradient>
 
-          <TouchableOpacity style={{borderRadius: 100}} activeOpacity={1} onPressIn={() => {
-
-            setKnobvalue(knobvalue+1);
-            }}>
+          <TouchableOpacity style={{borderRadius: 100}} activeOpacity={1}>
               
           <ImageBackground style={styles.knobimage} source={require("@/assets/knobrim.png")}>
           
@@ -43,7 +70,7 @@ function Knob(){
           <ImageBackground style={styles.knobimage} source={require("@/assets/knob_inner.png")} >
           
           <Text style={{fontFamily: "K2D", color: "white"}}>
-          {knobvalue}
+          {Math.round(knobvalue)}
           </Text>
           
           </ImageBackground>

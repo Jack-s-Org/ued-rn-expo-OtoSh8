@@ -3,7 +3,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-function PfpContainer(){
+function PfpContainer({text}){
     const [image, setImage] = useState(null);
 
     const pickImage = async () => {
@@ -36,7 +36,7 @@ function PfpContainer(){
 return(
 
     <View style={{width:"100%",alignItems:"flex-start",display:"flex",flexDirection:"column",marginBottom:-16,marginLeft:22}}>
-    <Text style={{fontFamily:"K2D", fontSize:14,color:"#646464"}}>PORTRAIT SELFIE:</Text>
+    <Text style={{fontFamily:"K2D", fontSize:14,color:"#646464"}}>{text}</Text>
 
     <View style={{display:"flex",flexDirection:"row",columnGap:6, justifyContent:"center", alignItems:"center", alignSelf:"center"}}>
         

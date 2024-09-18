@@ -2,22 +2,27 @@ import { useState } from "react";
 import { Text, Image, View, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-function QuizBefore({ page })
+function QuizBefore({ page, nav })
 {
+    const handleBackPress = () => {
+        nav.pop();
+      };
+
+
     let [Down, setDown] = useState(false);
 
     const OnNext = () => {
         setDown(false);
+
         switch(page){
             case 0:
-                break;
+                nav.replace("Main", {screen: "MainTabs"})
+            break;
             case 1:
-                break;
-            case 2:
-                break;
-            case 3:
+                handleBackPress();
                 break;
         }
+        
     };
 
     
@@ -34,7 +39,6 @@ return(
         
         </ImageBackground>
         </TouchableOpacity>
-
     </View>
 )
 }
