@@ -1,6 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ImageBackground, Text, View, Image } from "react-native";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Share } from "react-native";
 import NoKnob from "@/components/noknob.js";
 import SbsButton from "@/components/sbs";
 import { GestureHandlerRootView, ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -14,6 +14,30 @@ function RecipeScreen({navigation}){
         navigation.pop();
       };
 
+        const onShare = async () => {
+          try {
+            const result = await Share.share({
+              message: 'Check out this recipe for Chocolate Cake!',
+              url: 'https://example.com', // Optional URL
+            });
+      
+            if (result.action === Share.sharedAction) {
+              if (result.activityType) {
+                // Shared with activity type of result.activityType
+                Alert.alert('Shared with activity type: ' + result.activityType);
+              } else {
+                // Shared successfully
+                Alert.alert('Shared successfully!');
+              }
+            } else if (result.action === Share.dismissedAction) {
+              // Dismissed the share dialog
+              Alert.alert('Share dismissed.');
+            }
+          } catch (error) {
+            // Alert.alert('Error', error.message);
+          }
+        };
+      
 
 return(
     <GestureHandlerRootView>
@@ -30,7 +54,9 @@ return(
       </View>
 
       <View style={{display:"flex",flexDirection:"row", columnGap:10, justifyContent:"center"}}>
+        <TouchableOpacity onPress={onShare}>
         <Image source={require("@/assets/orangeshare.png")} style={{width:40,height:40}}></Image>
+        </TouchableOpacity>
         <Image source={require("@/assets/orangestar.png")} style={{width:40,height:40, marginRight:-13}}></Image>
       </View>
 
@@ -55,7 +81,8 @@ return(
 <View style={{width:344,height:552}}>
     <ImageBackground style={{width:"100%", height:"100%"}} source={require("@/assets/recipelist.png")}>
 
-      <ScrollView style={{width:"100%",height:"100%",overflow:"hidden",paddingVertical:24,columnGap:24}} contentContainerStyle={{alignItems:"center"}}>
+
+      <ScrollView style={{width:"100%",height:"100%",overflow:"hidden",columnGap:24,marginVertical:6}} contentContainerStyle={{alignItems:"center"}}>
         
         <View style={{display:"flex",alignItems:"flex-start",width:"100%", flexDirection:"column",paddingHorizontal:24}}>
         <Text style={{fontFamily:"K2DBOLD",fontSize:24,color:"#161616",marginBottom:-8}}>Chocolate Cake</Text>
@@ -89,6 +116,45 @@ return(
         <Ingredient name={"Boiling Water"} amt={"1 cups"} srcs={require("@/assets/ingredients/pot.png")}></Ingredient>
 
         </View>
+        <View style={{marginHorizontal:14,alignSelf:"flex-start"}}>
+        <Text style={{fontFamily:"K2DBOLD",fontSize:24,color:"#161616",marginTop:24}}>Instructions:</Text>
+
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 1</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Preheat oven to 180C°/350°F (160°C fan). Read Note 4 regarding shelf positions.</Text>
+        <View style={styles.divider}></View>
+
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 2</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Grease 2 x 22cm/9" cake pans with butter, then line the base. (Note 3 re: springform pans and other pan sizes).</Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 3</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Sift flour, cocoa, baking powder and baking soda into a large bowl. Add Sugar and salt. Whisk briefly to combine.</Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 4</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Add eggs, milk, oil and vanilla. Whisk well to combine until lump free - about 30 seconds.</Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 5</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Add boiling water and whisk to incorporate. The batter is VERY thin </Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 6</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Pour batter into cake pans.</Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 7</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Bake for 35 minutes or until a wooden skewer inserted into the centre comes out clean. See Note 4 regarding cook time if pans are on different shelves.</Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 8</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Cool for 10 minutes, then turn out onto wire racks upside down (Note 5).</Text>
+        <View style={styles.divider}></View>
+        
+        <Text style={{fontFamily:"K2DBOLD",fontSize:16,color:"#161616",marginBottom:-8}}>Step 9</Text>
+        <Text style={{fontFamily:"K2D",fontSize:16,color:"#161616",marginBottom:-8}}>Cool completely before frosting. I frosted the cake with my Chocolate Buttercream Frosting (scale recipe up by 50%).</Text>
+        <View style={styles.divider}></View>
+        </View>
       </ScrollView>
     </ImageBackground>
 </View>
@@ -114,6 +180,12 @@ const styles = StyleSheet.create({
         justifyContent: "top",
         rowGap: 18
       },
+      divider: {
+        width:"100%",
+        height:2,
+        backgroundColor:"#FF5F16",
+        marginVertical:8
+      }
   });
 
 

@@ -1,5 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ImageBackground, Text, StyleSheet, View } from "react-native";
+import { ImageBackground, Text, StyleSheet, View, Image } from "react-native";
 import LandingButton from "@/components/landingbutton";
 import { TouchableOpacity, GestureHandlerRootView } from "react-native-gesture-handler";
 
@@ -26,7 +26,8 @@ function LandingOne({navigation}){
             <Text style={{fontFamily: "K2D", fontSize:16, fontWeight:500, color:"white"}}>Skip</Text>
             </TouchableOpacity>
         </View>
-
+        <Image source={require("@/assets/stove.png")} style={{width:485,height:494,position:"absolute"}} resizeMode="stretch"></Image>
+        
         <View style={{display:"flex",flexDirection:"column", rowGap:12, paddingBottom:24}}>
             <View style={{paddingBottom:14}}>
             <Text style={{fontFamily:"K2DBOLD",lineHeight: 40, fontSize:40, color:"white",marginBottom: 8}}>Homecook-{"\n"}Friendly Recipes</Text>

@@ -10,7 +10,10 @@ function SetupButton({nav}){
     : require("@/assets/setupup.png");
 
 
+
+
     return(
+
         <TouchableOpacity onPressIn={() => {setDown(true)}} onPressOut={() => {setDown(false) ;
             nav.replace("Quiz", {screen: "Quiz1"})
         }} activeOpacity={1}>
@@ -18,6 +21,8 @@ function SetupButton({nav}){
             <ImageBackground source={activeimg} style={{width:"100%", height: "100%"}}></ImageBackground>
         </View>
         </TouchableOpacity>
+
+
     )
 }
 export default SetupButton;

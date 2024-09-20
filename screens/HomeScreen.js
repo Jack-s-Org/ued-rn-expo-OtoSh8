@@ -20,9 +20,9 @@ const HomeScreen = ({navigation}) => {
       />
       <View style={styles.container_knob_inner}></View>
       <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464",position:"absolute",left:12,top:4}}>Filter</Text>
-      <Knob></Knob>
-      <Knob></Knob>
-      <Knob></Knob>
+      <Knob angle={90} options={5} maxangle={360} choices={["BREAKFAST","BRUNCH","LUNCH","DINNER","SUPPER"]}></Knob>
+      <Knob angle={45} options={9} maxangle={360} choices={["0000","0100","0200","0300","0400","0500","0600","0700","0800"]}></Knob>
+      <Knob angle={45} options={9} maxangle={360} choices={["00:10","00:20","00:30","00:40","00:50","01:00","01:10","01:20","01:30"]}></Knob>
       </View>
     <RecipeContainer nav={navigation}>
     </RecipeContainer>

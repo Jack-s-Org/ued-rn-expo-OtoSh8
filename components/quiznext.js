@@ -17,8 +17,16 @@ function QuizNext({ page, nav})
                 nav.push("Quiz3");
                 break;
             case 2:
+                nav.push("Quiz4");
                 break;
             case 3:
+                nav.replace("Main", {screen: "MainTabs", params: {
+                    screen: 'Discover',
+                    paged: 1,
+                    params:{
+                        signedup: true
+                    }
+                  },})
                 break;
         }
     };

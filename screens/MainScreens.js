@@ -11,15 +11,18 @@ import SettingsScreen from "./SettingsScreen";
 import AddScreen from "./AddScreen";
 import {TouchableOpacity, Image } from 'react-native';
 import RecipeScreen from "./RecipeScreen";
+import ChatScreen from "./Chat";
+import MessageScreen from "./Message";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Empty = () => null;
 
-const MainTabs = ({ navigation }) => {
+const MainTabs = ({ navigation, route }) => {
   const [unreadCount, setUnreadCount] = useState(3);
-  const [page, setPageCount] = useState(0);
+  const { paged } = route.params || 0;
+  const [page, setPageCount] = useState(paged);
 
   return (
       <SafeAreaView style={{ backgroundColor: "#A7A7A7", height: "100%" }}>
@@ -161,6 +164,20 @@ const MainScreens = () => {
       <MainStacks.Screen
         name="Recipe"
         component={RecipeScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="Message"
+        component={MessageScreen}
         options={{ animation: "fade_from_bottom",
           headerShown: false
          }}

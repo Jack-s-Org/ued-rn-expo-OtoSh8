@@ -1,5 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ImageBackground, Text, StyleSheet, View } from "react-native";
+import { ImageBackground, Text, StyleSheet, View, Image } from "react-native";
 import LandingButton from "@/components/landingbutton";
 import { TouchableOpacity, GestureHandlerRootView } from "react-native-gesture-handler";
 
@@ -23,6 +23,9 @@ function LandingTwo({navigation}){
             <Text style={{fontFamily:"K2D", fontSize:16, fontWeight:500, color:"white"}}>Skip</Text>
             </TouchableOpacity>
         </View>
+
+        <Image source={require("@/assets/radar3d.png")} style={{width:597,height:382,position:"absolute",top:96}} resizeMode="stretch"></Image>
+
         <View style={{display:"flex",flexDirection:"column", rowGap:12, paddingBottom:24}}>
             <View style={{paddingBottom:14}}>
             <Text style={{fontFamily:"K2DBOLD",lineHeight: 40, fontSize:40, color:"white",marginBottom: 8}}>Find Other Rogue{"\n"}Homecooks</Text>

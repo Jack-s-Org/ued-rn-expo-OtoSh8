@@ -10,6 +10,7 @@ import { TouchableOpacity, GestureHandlerRootView } from "react-native-gesture-h
 import QuizOne from "./Quiz1";
 import QuizTwo from "./Quiz2";
 import QuizThree from "./Quiz3";
+import QuizFour from "./Quiz4";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,6 +40,13 @@ const QuizScreens = ({navigation}) => {
       <MainStacks.Screen
         name="Quiz3"
         component={QuizThree}
+        options={{ animation: "slide_from_right",
+          headerShown: false,
+         }}
+      />
+      <MainStacks.Screen
+        name="Quiz4"
+        component={QuizFour}
         options={{ animation: "slide_from_right",
           headerShown: false,
          }}

@@ -6,9 +6,17 @@ import { BoxShadow } from 'react-native-shadow';
 import { LinearGradient } from "expo-linear-gradient";
 import { useRef } from "react";
 
-function Knob({variant}){
+function Knob({angle, options, maxangle, choices}){
 
   const [knobvalue, setKnobvalue] = useState(0);
+  const [ang, setAng] = useState(0);
+
+
+
+  // const rightAngles = [0, 45, 90, 135, 180, 225, 270,315, 360];
+
+  let rightAngles = Array.from({ length: options }, (_, index) => (index) * angle);
+
 
   const panResponder = useRef(
     PanResponder.create({
@@ -17,13 +25,12 @@ function Knob({variant}){
         const { dy } = gestureState;
         setKnobvalue((prevValue) => {
           const newValue = prevValue + (dy < 0 ? Math.abs(dy/10) : -Math.abs(dy/10)); // Adjust based on up or down
-          return Math.max(0, Math.min(newValue, 360)); // Clamp between 0 and 360
+          return Math.max(0, Math.min(newValue, maxangle)); // Clamp between 0 and 360
         });
       },
       onPanResponderRelease: (event, gestureState) => {
         setKnobvalue((prevValue) => {
           // Snap to the nearest right angle
-          const rightAngles = [0, 45, 90, 135, 180, 225, 270,315, 360];
           let closestAngle = rightAngles.reduce((prev, curr) =>
             Math.abs(curr - prevValue) < Math.abs(prev - prevValue) ? curr : prev
           );
@@ -86,8 +93,14 @@ function Knob({variant}){
         </View>
 
         <ImageBackground source={require("@/assets/smallroller.png")} style={{width:64,height:14,marginVertical:2,borderRadius:2}}>
-        <View style={{width:"100%",height:"100%",overflow:"hidden",alignItems:"center"}}>
-            <Text style={{fontFamily:"K2DBOLD",fontSize:8}}>BREAKFAST</Text>
+        <View style={{width:"100%",height:"100%",overflow:"hidden",alignItems:"center",borderRadius:2}}>
+          <View style={{width:"100%",height:"100%",alignItems:"center",position:"absolute",top:0,transform: [{ translateY: (Math.round(-knobvalue*14/(angle || 45))) }],}}>
+
+          {choices.map((item, index) => (
+        <Text key={index} style={{fontFamily:"K2D",fontSize:8}}>{item}</Text>
+      ))}
+          </View>
+            
         </View>
         </ImageBackground>
         </View>

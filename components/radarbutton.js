@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ImageBackground, View } from "react-native";
 import { GestureHandlerRootView, TouchableOpacity } from "react-native-gesture-handler";
 
-function RadarButton({variant, activate}){
+function RadarButton({variant, activate, func}){
     let img;
     let [Down, setDown] = useState(!activate);
 
@@ -56,8 +56,10 @@ function RadarButton({variant, activate}){
                 case 0: //fav
                     break;
                 case 1: //chat
+                func();
                     break;
                 case 2: //next
+                    func();
                     break;
             }}
         }} activeOpacity={1}>
