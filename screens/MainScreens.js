@@ -13,6 +13,9 @@ import {TouchableOpacity, Image } from 'react-native';
 import RecipeScreen from "./RecipeScreen";
 import ChatScreen from "./Chat";
 import MessageScreen from "./Message";
+import AddSquadScreen from "./AddToSquad";
+import MessageSquadScreen from "./MessageSquad";
+import ShareScreen from "./ShareFavourite";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -178,6 +181,27 @@ const MainScreens = () => {
       <MainStacks.Screen
         name="Message"
         component={MessageScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="MessageSquad"
+        component={MessageSquadScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="AddSquad"
+        component={AddSquadScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="Share"
+        component={ShareScreen}
         options={{ animation: "fade_from_bottom",
           headerShown: false
          }}

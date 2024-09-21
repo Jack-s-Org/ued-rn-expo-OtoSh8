@@ -33,8 +33,8 @@ function LandingTwo({navigation}){
             </View>
 
             <View style={{display:"flex",flexDirection:"row", columnGap:6, alignSelf:'center'}}>
-            <View style={{width:50,height:6,backgroundColor:"#F45F16", elevation: 5, shadowColor: "#000000", shadowOpacity: 0.60, shadowRadius: 3, shadowOffset: {width: 0, height: 2}, borderRadius:12}}></View>
             <View style={{width:26,height:6,backgroundColor:"white", elevation: 5, shadowColor: "#000000", shadowOpacity: 0.60, shadowRadius: 3, shadowOffset: {width: 0, height: 2}, borderRadius:12}}></View>
+            <View style={{width:50,height:6,backgroundColor:"#F45F16", elevation: 5, shadowColor: "#000000", shadowOpacity: 0.60, shadowRadius: 3, shadowOffset: {width: 0, height: 2}, borderRadius:12}}></View>
             <View style={{width:26,height:6,backgroundColor:"white", elevation: 5, shadowColor: "#000000", shadowOpacity: 0.60, shadowRadius: 3, shadowOffset: {width: 0, height: 2}, borderRadius:12}}></View>
             </View>
 

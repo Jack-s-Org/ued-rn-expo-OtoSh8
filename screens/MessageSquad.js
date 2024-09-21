@@ -17,10 +17,17 @@ import IcoAvatar from "@/components/icons/avatar";
 import IcoSquadOrange from "@/components/icons/orangesquad";
 import PinButton from "@/components/pinbutton";
 import SendButton from "@/components/sendbutton";
+import IcoSquad from "@/components/icons/squad";
+import IcoSquadSilver from "@/components/icons/squadsilver";
+import IcoBIgSquad from "@/components/icons/bigsquad";
+import IcoMore from "@/components/icons/more";
+import ShareChat from "@/components/sharechat";
 
 
-function MessageScreen({navigation, route}){
+function MessageSquadScreen({navigation, route}){
   const {names} = route.params;
+  const {shared} = route.params || false;
+
 
   const handleBackPress = () => {
     navigation.pop();
@@ -39,24 +46,28 @@ function MessageScreen({navigation, route}){
   <Image source={require("@/assets/orangeback.png")} style={{width:40,height:40, marginLeft:-13}}></Image>
   </TouchableOpacity>
   
-  <IcoAvatar style={{marginLeft:8}}></IcoAvatar>
+  <IcoSquadSilver style={{marginLeft:8}}></IcoSquadSilver>
 <Text style={{fontFamily: "K2D", fontSize: 20, textAlignVertical:"center",marginLeft:4}}>{names}</Text>
 
 </View>
 
-<TouchableOpacity onPress={() => {
-  navigation.push("AddSquad");
-}}>
-<IcoSquadOrange style={{marginTop:12}}></IcoSquadOrange>
-</TouchableOpacity>
+<IcoMore style={{marginTop:6}}></IcoMore>
 </View>
 
 <View style={styles.Maincontainer}>
             <View style={{width:344,height:4,backgroundColor:"#717171"}}></View>
             <ImageBackground source={require("@/assets/recipecon.png")} style={{width: "100%", height: "100%"}} resizeMode="stretch">
                 <ScrollView contentContainerStyle={styles.contentContainer} horizontal={false} style={styles.innercontainer}>
-                  <Text style={{fontSize:12,fontFamily:"K2D",color:"#FFFFFF",textAlign:"center",width:230}}>This is the beginning of your conversation.
+                  <Text style={{fontSize:12,fontFamily:"K2D",color:"#FFFFFF",textAlign:"center",width:230, alignSelf:"center"}}>This is the beginning of your conversation.
                   Say hello to your fellow homecook!</Text>
+                  
+                  <View style={{position:"fixed", marginTop:160, alignSelf:"center"}}>
+                  <IcoBIgSquad></IcoBIgSquad>
+                  </View>
+
+                {shared ? <ShareChat variant={2} name="Basted Steak" time="30 mins" cal="230 kcal" image={3}></ShareChat> : null}
+                
+
                 </ScrollView>
             </ImageBackground>
             <View style={{width:344,height:4,backgroundColor:"#C9C9C9"}}></View>
@@ -75,7 +86,7 @@ function MessageScreen({navigation, route}){
             </ImageBackground>
           </View>
 
-          <PinButton></PinButton>
+          <PinButton nav={navigation} activate={true}></PinButton>
 
           <SendButton></SendButton>
 
@@ -110,10 +121,11 @@ const styles = StyleSheet.create({
       width: 344,
       height: 625,
       borderRadius: 4,
-      marginTop:12
+      marginTop:12,
   },
   contentContainer: {
-    alignItems:"center",
+    alignItems:"flex-end",
+    paddingHorizontal:14,
     paddingVertical: 24,
     rowGap: 6
   }
@@ -122,4 +134,4 @@ const styles = StyleSheet.create({
 
   });
 
-export default MessageScreen;
+export default MessageSquadScreen;

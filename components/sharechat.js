@@ -4,9 +4,10 @@ import IcoFire from "./icons/fire";
 import IcoTimer from "./icons/timer";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import IcoFav from "./icons/fav";
+import IcoRead from "./icons/read";
 
 
-function Recipe({name, time, cal, variant, image, navigation, fav}){
+function ShareChat({name, time, cal, variant, image, navigation, fav}){
     let imageSource;
     let foodSource;
 
@@ -48,18 +49,8 @@ function Recipe({name, time, cal, variant, image, navigation, fav}){
 <View style={styles.maincon}>
 
 
-    <View style={styles.imgcon}>
-        <LinearGradient colors={['#646464', '#F2F2F2']} style={{width: "100%", height: "100%", opacity: 1, display: "flex", alignItems: "center", position: "absolute"}}>
-        </LinearGradient>
-        <ImageBackground source={foodSource} resizeMode="cover" style={{width: 126, height: 126, alignSelf: "center", padding: 0, margin: "auto"}}>
-            </ImageBackground>
-    </View>
-
-
-
-    <View style={{ width: 141, rowGap: 6, display: "flex", flexDirection: "column"}}>
-    <View style={{ width: 141}}>
-    <Text style={{fontFamily: "K2D", fontSize: 6, fontWeight: "500", alignSelf: "flex-start", color: "#646464"}}>DISH NAME:</Text>
+<View style={{ width: 141, rowGap: 6, display: "flex", flexDirection: "column",paddingHorizontal:10}}>
+    <View style={{ alignItems:"center"}}>
     <Text style={{fontFamily: "K2D", fontSize: 16, fontWeight: "700"}}>{name}</Text>
     </View>
 
@@ -77,11 +68,18 @@ function Recipe({name, time, cal, variant, image, navigation, fav}){
     </View>
 
 
+    <View style={styles.imgcon}>
+        <LinearGradient colors={['#646464', '#F2F2F2']} style={{width: "100%", height: "100%", opacity: 1, display: "flex", alignItems: "center", position: "absolute"}}>
+        </LinearGradient>
+        <ImageBackground source={foodSource} resizeMode="cover" style={{width: 134, height: 134, alignSelf: "center", padding: 0, margin: "auto"}}>
+            </ImageBackground>
+    </View>
 
+<View style={{flexDirection:"row",position:"absolute",bottom:2,right:2}}>
+      <Text style={{fontFamily:"K2D",fontSize:10,color:"#646464"}}>14:57</Text>
+      <IcoRead></IcoRead>
+      </View>
 
-        <View style={{width:24, height:24, position: "absolute", right: 6, bottom: 40}}>
-           <ImageBackground source={imageSource} style={{width:"100%",height:"100%"}} resizeMode="stretch"></ImageBackground>
-        </View>
         {fav ?   <IcoFav style={{position:"absolute",right:-2,top:-2}}></IcoFav> : null}
         </View>
         </TouchableOpacity>
@@ -91,23 +89,23 @@ function Recipe({name, time, cal, variant, image, navigation, fav}){
 
 const styles = StyleSheet.create({
     imgcon: {
-        width: 141,
-        height: 141,
-        borderRadius: 2,
+        width: 150,
+        height: 150,
+        borderRadius: 7,
         overflow: "hidden",
     },
     maincon: {
-        width: 160,
-        height: 226,
+        width: 194,
+        height: 302,
         backgroundColor: "#CACACA",
         borderRadius: 4,
         elevation: 4,
         opacity: 1,
         display: "flex",
         alignItems: "center",
-        paddingVertical: 10,
-        rowGap: 14
+        paddingVertical: 13,
+        rowGap: 14,
     }
 })
 
-export default Recipe;
+export default ShareChat;
