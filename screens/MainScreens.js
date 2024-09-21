@@ -16,6 +16,9 @@ import MessageScreen from "./Message";
 import AddSquadScreen from "./AddToSquad";
 import MessageSquadScreen from "./MessageSquad";
 import ShareScreen from "./ShareFavourite";
+import ChecklistScreen from "./ChecklistScreen";
+import PrepScreen from "./PrepScreen";
+import CookingScreen from "./CookingScreen";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -186,6 +189,13 @@ const MainScreens = () => {
          }}
       />
       <MainStacks.Screen
+        name="Checklist"
+        component={ChecklistScreen}
+        options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
         name="MessageSquad"
         component={MessageSquadScreen}
         options={{ animation: "fade_from_bottom",
@@ -203,6 +213,20 @@ const MainScreens = () => {
         name="Share"
         component={ShareScreen}
         options={{ animation: "fade_from_bottom",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="Prep"
+        component={PrepScreen}
+        options={{ animation: "slide_from_right",
+          headerShown: false
+         }}
+      />
+      <MainStacks.Screen
+        name="Cooking"
+        component={CookingScreen}
+        options={{ animation: "slide_from_right",
           headerShown: false
          }}
       />

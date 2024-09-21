@@ -1,5 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ImageBackground, Text, StyleSheet, View, Image, ScrollView, Touchable } from "react-native";
+import { ImageBackground, Text, StyleSheet, View, Image, ScrollView, Touchable, Animated } from "react-native";
 import LandingButton from "@/components/landingbutton";
 import { TouchableOpacity, GestureHandlerRootView, TextInput } from "react-native-gesture-handler";
 import PfpContainer from "@/components/pfp";
@@ -65,7 +65,7 @@ function MessageSquadScreen({navigation, route}){
                   <IcoBIgSquad></IcoBIgSquad>
                   </View>
 
-                {shared ? <ShareChat variant={2} name="Basted Steak" time="30 mins" cal="230 kcal" image={3}></ShareChat> : null}
+                {shared ? <ShareChat variant={2} nav={navigation} name="Basted Steak" time="30 mins" cal="230 kcal" image={3}></ShareChat> : null}
                 
 
                 </ScrollView>

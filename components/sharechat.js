@@ -1,13 +1,18 @@
-import { View, StyleSheet, Text, ImageBackground, Image } from "react-native";
+import { View, StyleSheet, Text, ImageBackground, Image, Animated } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import IcoFire from "./icons/fire";
 import IcoTimer from "./icons/timer";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import IcoFav from "./icons/fav";
 import IcoRead from "./icons/read";
+import IcoCook from "./icons/cook";
+import IcoInfo from "./icons/info";
+import IcoRight from "./icons/right";
+import IcoWrong from "./icons/wrong";
+import IcoChecklist from "./icons/checklist";
+import { useRef } from "react";
 
-
-function ShareChat({name, time, cal, variant, image, navigation, fav}){
+function ShareChat({name, time, cal, variant, image, nav, fav}){
     let imageSource;
     let foodSource;
 
@@ -42,6 +47,35 @@ function ShareChat({name, time, cal, variant, image, navigation, fav}){
                 foodSource = require('@/assets/food/steak.png');
           }
     
+
+          const slideAnim = useRef(new Animated.Value(0)).current;
+
+          const slide1 = () => {
+
+            Animated.timing(slideAnim, {
+              toValue: -194,
+              duration: 500,
+              useNativeDriver: true,
+            }).start()
+          }
+
+          const slideBack = () => {
+
+            Animated.timing(slideAnim, {
+              toValue: 0,
+              duration: 500,
+              useNativeDriver: true,
+            }).start()
+          }
+            
+            const slide2 = () => {
+
+              Animated.timing(slideAnim, {
+                toValue: -388,
+                duration: 500,
+                useNativeDriver: true,
+              }).start()
+            }
 
 
     return(
@@ -80,7 +114,68 @@ function ShareChat({name, time, cal, variant, image, navigation, fav}){
       <IcoRead></IcoRead>
       </View>
 
-        {fav ?   <IcoFav style={{position:"absolute",right:-2,top:-2}}></IcoFav> : null}
+        <Animated.View style={{width:"100%",flexDirection:"row",alignItems:"center",transform: [{ translateX: slideAnim}]}}>
+
+          <View style={{flexDirection:"row", alignItems:"center",width:"100%",justifyContent:"center",columnGap:32}}>
+
+
+          <TouchableOpacity onPress={() => {
+            nav.push("Recipe");
+          }}>
+          <View style={{flexDirection:"column", alignItems:"center"}}>
+          <IcoInfo></IcoInfo>
+          <Text style={{fontFamily:"K2D",fontSize:10}}>Info</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={slide1}>
+          <View style={{flexDirection:"column", alignItems:"center"}}>
+          <IcoCook></IcoCook>
+          <Text style={{fontFamily:"K2D",fontSize:10}}>Cook</Text>
+          </View>
+          </TouchableOpacity>
+          </View>
+
+
+          <View style={{flexDirection:"row", alignItems:"center",width:"100%",justifyContent:"center",columnGap:32,height:44,marginTop:-12}}>
+            <View style={{flexDirection:"column", alignItems:"center",width:"100%",justifyContent:"center",rowGap:12}}>
+          <Text style={{fontFamily:"K2D",fontSize:10}}>Do you agree to cook?</Text>
+          <View style={{flexDirection:"row", alignItems:"center",width:"100%",justifyContent:"center",columnGap:46}}>
+          <TouchableOpacity onPress={slideBack}>
+          <IcoWrong></IcoWrong>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={slide2}>
+          <IcoRight></IcoRight>
+          </TouchableOpacity>
+          </View>
+          </View>
+          </View>
+
+
+          <View style={{flexDirection:"row", alignItems:"center",width:"100%",justifyContent:"center",columnGap:32,marginTop:-12}}>
+          <TouchableOpacity onPress={() => {
+            nav.push("Checklist")
+          }}>
+          <View style={{flexDirection:"column", alignItems:"center"}}>
+          <IcoChecklist></IcoChecklist>
+          <Text style={{fontFamily:"K2D",fontSize:10}}>Ingredients</Text>
+          </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+            nav.push("Prep")
+          }}>
+          <View style={{flexDirection:"column", alignItems:"center"}}>
+          <IcoCook></IcoCook>
+          <Text style={{fontFamily:"K2D",fontSize:10}}>Start</Text>
+          </View>
+          </TouchableOpacity>
+
+          </View>
+
+
+
+        </Animated.View>
         </View>
         </TouchableOpacity>
     );
@@ -105,6 +200,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingVertical: 13,
         rowGap: 14,
+        overflow:"hidden"
     }
 })
 

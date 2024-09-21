@@ -6,9 +6,15 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import IcoFav from "./icons/fav";
 
 
-function Recipe({name, time, cal, variant, image, navigation, fav}){
+function Recipe({name, time, cal, variant, image, navigation, fav, nav}){
     let imageSource;
     let foodSource;
+
+    const onClicker = () => {
+      if(fav == true){
+        nav.navigate("MessageSquad", {shared: true, names: "The Three Musketeers"});
+      }
+    }
 
         switch (variant) {
             case 0:
@@ -44,7 +50,7 @@ function Recipe({name, time, cal, variant, image, navigation, fav}){
 
 
     return(
-      <TouchableOpacity activeOpacity={1}>
+      <TouchableOpacity activeOpacity={1} onPress={onClicker}>
 <View style={styles.maincon}>
 
 
